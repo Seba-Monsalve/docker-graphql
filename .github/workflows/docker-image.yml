@@ -28,10 +28,14 @@ jobs:
     - name: build docker image
       run: |
         docker build -t seb4/graphql-actions:0.0.2 .
+        docker build -t seb4/graphql-actions:latest .
+        
         
     - name: push docker image
       run: |
        docker push seb4/graphql-actions:0.0.2
+       docker push seb4/graphql-actions:latest0.0.2
+       
 
     #- name: Build the Docker image
     #  run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
