@@ -36,13 +36,13 @@ jobs:
     - name: build docker image
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
-
       run: |
         docker build -t seb4/graphql-actions:$NEW_VERSION .
         docker build -t seb4/graphql-actions:latest .
-
         
     - name: push docker image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
        docker push seb4/graphql-actions:$NEW_VERSION
        docker push seb4/graphql-actions:latest
